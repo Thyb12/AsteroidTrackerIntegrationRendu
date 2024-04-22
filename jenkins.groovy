@@ -2,6 +2,14 @@ pipeline {
     agent any
 
     stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    // Cloner le dépôt Git public
+                    git url: 'https://github.com/Thyb12/AsteroidTrackerIntegrationRendu'
+                }
+            }
+        }
         stage('Build') {
             steps {
                 // Commandes pour construire le projet, par exemple pour un projet Java
