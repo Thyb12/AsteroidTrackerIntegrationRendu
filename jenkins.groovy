@@ -32,18 +32,10 @@ pipeline {
         }
 
         stage('Archive Artifacts') {
-            steps {
-                // Enregistrer les artefacts générés
-                archiveArtifacts artifacts: '*/target/.jar', fingerprint: true
-            }
-        }
-
-        stage('Publish') {
-            steps {
-                // Étape facultative pour publier le paquet, par exemple sur Nexus ou un Docker Registry
-                echo 'Publishing package...'
-                // Ajouter les commandes pour publier le paquet
-            }
+             steps {
+                 // Archiver les artefacts générés pour les conserver
+                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+                }
         }
     }
 }
